@@ -14,9 +14,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+# Snapfolio/urls.py (app file)
+
 from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', views.photo_list, name='photo_list'),
+    path('create/', views.photo_create, name='photo_create'),
+    path('photo/<int:pk>/', views.photo_detail, name='photo_detail'),
 ]
